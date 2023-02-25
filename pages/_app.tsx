@@ -1,7 +1,7 @@
 import '../styles/globals.css';
-import '@rainbow-me/rainbowkit/styles.css';
+import '0xpass/styles.css';
 import type { AppProps } from 'next/app';
-import { RainbowKitProvider, getDefaultWallets } from '@rainbow-me/rainbowkit';
+import { PassProvider, getDefaultWallets } from '0xpass';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import { mainnet, polygon, optimism, arbitrum, goerli } from 'wagmi/chains';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
@@ -40,9 +40,9 @@ const wagmiClient = createClient({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
+      <PassProvider apiKey={"a6519401-0920-41d3-9425-305d3c9859f4"} chains={chains}>
         <Component {...pageProps} />
-      </RainbowKitProvider>
+      </PassProvider>
     </WagmiConfig>
   );
 }
